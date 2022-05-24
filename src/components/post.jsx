@@ -4,8 +4,8 @@ import LeftBtn from '../icons/left.svg';
 import RightBtn from '../icons/right.svg';
 
 function Post(props){
-    const {news} = props
-    const [size, setSize] = useState(898);
+    const {news} = props;
+    const [size, setSize] = useState(0);
     
     let pictures = [];
     let index = 0;
@@ -34,11 +34,9 @@ function Post(props){
         sliderLine.style.marginLeft = -offset + "px" ;
     }
 
-    useEffect( () => {
-        window.addEventListener("resize", () => {
-            setSize(document.querySelector('.slider').clientWidth);
-        });
-    }, [])
+    useEffect( () => window.addEventListener("resize", () => setSize(document.querySelector('.slider').clientWidth) ), [])
+
+    useEffect ( () => setSize(document.querySelector('.slider').offsetWidth), []);
 
     return(
         <>
