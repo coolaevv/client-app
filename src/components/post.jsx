@@ -6,7 +6,7 @@ import RightBtn from '../icons/right.svg';
 function Post(props){
     const {news} = props
     const [size, setSize] = useState(898);
-
+    
     let pictures = [];
     let index = 0;
     for ( let i = 0; i < news.pictures.length; i++ ) {
@@ -23,8 +23,6 @@ function Post(props){
         if ( offset >= width_slider ) offset = 0;
         sliderLine.style.width = size * index;
         sliderLine.style.marginLeft = -offset + "px" ;
-
-        console.log(offset)
     }
 
     let BackSlider = (e) => {
@@ -44,7 +42,7 @@ function Post(props){
 
     return(
         <>
-            <div className="post" key={news.id}>
+            <div className="post">
                 <Link to={ '/news/' + news.id } className='title'>{news.title}</Link>
                 <div className='slider'>
 

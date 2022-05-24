@@ -42,7 +42,7 @@ header .header-body nav a{
   font-size: 18px;
 }
 header .header-body nav a:hover{
-  color: #3498db;
+  color: #00d8d6;
 }
 
 
@@ -91,7 +91,7 @@ main .not-important-nav{
   transition: color 500ms;
 }
 .post .title:hover{
-  color: #3498db;
+  color: #00d8d6;
 }
 .post img{
   width: 100%;
