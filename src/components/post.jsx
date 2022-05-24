@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import LeftBtn from '../icons/left.svg';
 import RightBtn from '../icons/right.svg';
 
-function Post(props){
-    const {news} = props;
+function Post(props) {
+    const { news } = props;
     const [size, setSize] = useState(0);
-    
+
     let pictures = [];
     let index = 0;
-    for ( let i = 0; i < news.pictures.length; i++ ) {
+    for (let i = 0; i < news.pictures.length; i++) {
         pictures.push(news.pictures[i]);
         index = index + 1;
     }
@@ -20,40 +20,40 @@ function Post(props){
         let sliderLine = e.target.previousElementSibling;
         let width_slider = sliderLine.offsetWidth;
         offset = offset + size;
-        if ( offset >= width_slider ) offset = 0;
+        if (offset >= width_slider) offset = 0;
         sliderLine.style.width = size * index;
-        sliderLine.style.marginLeft = -offset + "px" ;
+        sliderLine.style.marginLeft = -offset + "px";
     }
 
     let BackSlider = (e) => {
         let sliderLine = e.target.nextElementSibling;
         let width_slider = sliderLine.offsetWidth;
         offset = offset - size;
-        if ( offset < 0 ) offset = width_slider - size;
+        if (offset < 0) offset = width_slider - size;
         sliderLine.style.width = size * index;
-        sliderLine.style.marginLeft = -offset + "px" ;
+        sliderLine.style.marginLeft = -offset + "px";
     }
 
-    useEffect( () => window.addEventListener("resize", () => setSize(document.querySelector('.slider').clientWidth) ), [])
+    useEffect(() => window.addEventListener("resize", () => setSize(document.querySelector('.slider').clientWidth)), [])
 
-    useEffect ( () => setSize(document.querySelector('.slider').offsetWidth), []);
+    useEffect(() => setSize(document.querySelector('.slider').offsetWidth), []);
 
-    return(
+    return (
         <>
             <div className="post">
-                <Link to={ '/news/' + news.id } className='title'>{news.title}</Link>
+                <Link to={'/news/' + news.id} className='title'>{news.title}</Link>
                 <div className='slider'>
 
                     <div className="back-btn" onClick={BackSlider}><img src={LeftBtn} alt="" /></div>
-                    <div className="slider-line" style={{width: size * index}}>
-                    { pictures.map( (img, i) => 
-                        <div className="attachment-picture" style={{width: size}}><img src={img} alt='' key={i} /></div>
-                    ) }
+                    <div className="slider-line" style={{ width: size * index }}>
+                        {pictures.map((img, i) =>
+                            <div className="attachment-picture" style={{ width: size }}><img src={img} alt='' key={i} /></div>
+                        )}
                     </div>
                     <div className="next-btn" onClick={NextSlider}><img src={RightBtn} alt="" /></div>
 
                 </div>
-                
+
                 <p>{news.desc}</p>
             </div>
         </>

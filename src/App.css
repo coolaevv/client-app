@@ -97,6 +97,16 @@ main .not-important-nav{
   width: 100%;
   margin: 10px 0 10px 0;
 }
+.post .back-link-page{
+  padding: .4em .8em;
+  border: 1px solid #0fbcf9;
+  background-color: #4bcffa;
+  color: #485460;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
 
 
 
@@ -115,6 +125,7 @@ main .not-important-nav{
   user-select: none;           /* Non-prefixed version, currently not supported by any browser */
   overflow: hidden;
 }
+
 .slider-line{
   height: 450px;
   display: flex;

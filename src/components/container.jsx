@@ -10,24 +10,23 @@ function Container() {
     return (
         <>
             <main>
-            <div className="content">
-                <Routes>
-                    <Route path="/" element={ <News/> } />
-                    <Route path="/news" element={ <News/> } />
-                    <Route path="/news/:id" element={ <ViewNews/> } />
-                    <Route path="/videos" element={ <Videos/> } />
-                    <Route path="/city" element={ <City/> } />
-                    <Route path="/poster" element={ <Poster/> } />
-                </Routes>
-            </div>
-            <div className="not-important-nav">
+                <div className="content">
+                    <Routes>
+                        <Route path="/" element={<News />} />
+                        <Route path="/news" element={<News />} />
+                        <Route path="/news/:id" element={<ViewNews />} />
+                        <Route path="/videos" element={<Videos />} />
+                        <Route path="/city" element={<City />} />
+                        <Route path="/poster" element={<Poster />} />
+                    </Routes>
+                </div>
+                <div className="not-important-nav">
 
-            </div>
-        </main>
-        
+                </div>
+            </main>
+
         </>
     );
-  }
-  
-  export default Container;
-  
+}
+
+export default Container;
