@@ -74,100 +74,43 @@ main .not-important-nav{
 }
 
 
-.post{
-  width: 100%;
-  height: auto;
-  padding: 1em;
-  background-color: #ffffff;
+.carousel-post{
   border: 1px solid #dedede;
-  border-radius: 5px;
+  padding: .5em;
   margin-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
 }
-.post .title{
-  font-size: 18px;
-  font-weight: 600;
+.carousel-post .news-link{
   text-decoration: none;
-  color: #333333;
-  transition: color 500ms;
+  font-size: 18px;
+  color: #3498db;
 }
-.post .title:hover{
+.carousel-post .news-link:hover{
   color: #00d8d6;
 }
-.post img{
-  width: 100%;
-  margin: 10px 0 10px 0;
-}
-.post .back-link-page{
-  padding: .4em .8em;
-  border: 1px solid #0fbcf9;
-  background-color: #4bcffa;
-  color: #485460;
-  font-weight: 600;
-  display: inline-block;
-  cursor: pointer;
-  margin-bottom: 1em;
-}
 
 
 
-.slider{
-  max-width: 900px;
-  min-height: 450px;
+.carousel{
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 450px;
   border-radius: 5px;
-  position: relative;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently not supported by any browser */
-  overflow: hidden;
 }
-
-.slider-line{
-  height: 450px;
-  display: flex;
-  transition: 300ms;
-}
-.attachment-picture{
-  width: 780px;
-  height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  background-color: #000000;
-}
-
-.attachment-picture img{
-  width: auto;
+.carousel-item{
+  width: 100%;
   height: 100%;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: #000000 !important;
 }
-.back-btn, .next-btn{
-  width: 40px;
-  height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(44, 62, 80, .2);
-  cursor: pointer;
-  transition: background-color 500ms;
-  z-index: 3;
-}
-
-.back-btn:hover, .next-btn:hover{
-  background-color: rgba(44, 62, 80, .7);
-}
-
-.back-btn{
-  position: absolute;
-  left: 0;
-}
-.next-btn{
-  position: absolute;
-  right: 0;
-  top: 0;
+.carousel-item img{
+  height: auto !important;
+  width: 100%;
 }

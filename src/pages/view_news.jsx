@@ -4,7 +4,7 @@ import Post from '../components/article';
 
 function ViewNews() {
   const { id } = useParams();
-  const [post, setPost] = useState({'id':'','title':'', 'desc':'', 'pictures':[]});
+  const [post, setPost] = useState({'id':'','title':'', 'desc':'', 'full':'', 'pictures':[]});
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/news/" + id, {method:"GET"})
