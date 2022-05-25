@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ViewPost from '../components/view_post';
+import Post from '../components/article';
 
 function ViewNews() {
   const { id } = useParams();
+  const [post, setPost] = useState({'id':'','title':'', 'desc':'', 'pictures':[]});
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/news/" + id, {method:"GET"})
+      .then(resp => resp.json())
+      .then((data) => setPost(data))
+  }, []);
+
+  document.title = post.title;
+
   return (
     <>
-      <ViewPost id={id} />
+      <Post news={post} />
     </>
   );
 }

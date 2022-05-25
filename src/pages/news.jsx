@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Post from '../components/post';
+import Article from '../components/article';
 
 function News() {
   const [news, setNews] = useState([]);
@@ -9,10 +9,12 @@ function News() {
       .then(resp => resp.json())
       .then((data) => setNews(data))
   }, []);
+  
+  document.title = 'Новости';
 
   return (
     <>
-      { news.map( (posts, i) => <Post news={posts} id={i} key={i} /> ) }
+      { news.map( (posts, i) => <Article news={posts} key={i} /> ) }
     </>
   );
 }
