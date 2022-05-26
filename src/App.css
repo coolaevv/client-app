@@ -89,7 +89,26 @@ main .not-important-nav{
 .carousel-post .news-link:hover{
   color: #00d8d6;
 }
-
+.carousel-post .post-options{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.carousel-post .post-options .opt{
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  padding: .3em 1em;
+  background-color: #ebedf0;
+  color: #99a2ad;
+  font-size: 14px;
+  cursor: default;
+  font-weight: 500;
+  border: 1px solid #dedede;
+}
+.carousel-post .post-options .opt span{
+  margin-left: 10px;
+}
 
 
 .carousel{
@@ -99,7 +118,7 @@ main .not-important-nav{
 
 .carousel-inner {
   width: 100%;
-  height: 450px;
+  height: 350px;
   border-radius: 5px;
 }
 .carousel-item{
