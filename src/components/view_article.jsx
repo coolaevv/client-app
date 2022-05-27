@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Carousel from 'react-bootstrap/Carousel'
+import { Link, useNavigate } from 'react-router-dom';
+import { Carousel } from 'react-bootstrap'
 
-let Article = ({news}) => {
+let ViewPost = ({news}) => {
+
+    const navigate = useNavigate();
 
     return (
         <div className='carousel-post' key={news.id}>
+            <div onClick={() => navigate(-1)} className="back-page-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg>
+                <span>Назад</span>
+            </div>
             <Link to={'/news/' + news.id} className='news-link'>{news.title}</Link>
             <Carousel interval={null} fade={true}>
                 {news.pictures.map((href, i) =>
@@ -14,7 +22,7 @@ let Article = ({news}) => {
                     </Carousel.Item>
                 )}
             </Carousel>
-            <p>{news.desc}</p>
+            <p>{news.full}</p>
 
             <div className="post-options">
                 <div className="pubdate opt">
@@ -33,7 +41,8 @@ let Article = ({news}) => {
                 </div>
             </div>
         </div>
+
     )
 }
 
-export default Article;
+export default ViewPost;

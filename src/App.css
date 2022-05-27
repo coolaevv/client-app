@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 html, body{
-  background-color: #f0f0f0;
+  background-color: #f0f0f0;  /*  #75605b */
 }
 
 header{
@@ -21,7 +21,7 @@ header{
 }
 header .header-body{
   margin: 0 auto;
-  max-width: 70%;
+  max-width: 60%;
   min-width: 900px;
   min-width: 900px;
   height: 100%;
@@ -50,8 +50,7 @@ header .header-body nav a:hover{
 
 main{
   margin: 10px auto;
-  max-width: 70%;
-  min-width: 900px;
+  max-width: 60%;
   min-width: 900px;
   height: auto;
   position: relative;
@@ -71,6 +70,7 @@ main .not-important-nav{
   left: calc(70% + 10px);
   background-color: #ffffff;
   border-radius: 5px;
+  border: 1px solid #dedede;
 }
 
 
@@ -82,9 +82,12 @@ main .not-important-nav{
   border-radius: 5px;
 }
 .carousel-post .news-link{
+  display: block;
   text-decoration: none;
   font-size: 18px;
   color: #3498db;
+  cursor: pointer;
+  line-height: 1.2
 }
 .carousel-post .news-link:hover{
   color: #00d8d6;
@@ -100,20 +103,21 @@ main .not-important-nav{
   border-radius: 15px;
   padding: .3em 1em;
   background-color: #ebedf0;
-  color: #99a2ad;
-  font-size: 14px;
+  color: #818c99;
   cursor: default;
   font-weight: 500;
-  border: 1px solid #dedede;
 }
 .carousel-post .post-options .opt span{
   margin-left: 10px;
+  color: #818c99;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
 .carousel{
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: .5em;
+  margin-bottom: .5em;
 }
 
 .carousel-inner {
@@ -132,4 +136,66 @@ main .not-important-nav{
 .carousel-item img{
   height: auto !important;
   width: 100%;
+}
+
+.carousel-post .back-page-btn{
+  display: inline-block !important;
+  background-color: #ebedf0;
+  color: #818c99;
+  padding: .3em .8em;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #00d8d6;
+  color: #000000;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.carousel-post .back-page-btn span{
+  margin-left: 5px;
+}
+
+
+
+
+
+
+
+.svg-loader{
+  display:flex;
+  margin: 70px auto;
+  align-content: space-around;
+  justify-content: center;
+}
+.loader-svg{
+  fill: none;
+  stroke-width: 5px;
+  stroke-linecap: round;
+  stroke: #3498db;
+}
+.loader-svg.bg{
+  stroke-width: 8px;
+  stroke: #f0f0f0;
+}
+
+
+.animate{
+  stroke-dasharray: 242.6;
+  animation: fill-animation 1s cubic-bezier(1,1,1,1) 0s infinite;
+}
+
+@keyframes fill-animation{
+  0%{
+    stroke-dasharray: 40 242.6;
+    stroke-dashoffset: 0;
+  }
+  50%{
+    stroke-dasharray: 141.3;
+    stroke-dashoffset: 141.3;
+  }
+  100%{
+    stroke-dasharray: 40 242.6;
+    stroke-dashoffset: 282.6;
+  }
 }

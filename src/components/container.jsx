@@ -6,7 +6,7 @@ import Videos from '../pages/videos';
 import City from '../pages/city';
 import Poster from '../pages/poster';
 
-function Container() {
+let Container = () => {
     return (
         <>
             <main>
@@ -28,5 +28,4 @@ function Container() {
         </>
     );
 }
-
 export default Container;
