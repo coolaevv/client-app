@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Article from '../components/article';
-import Indication from '../components/indication'
 
 let News = () => {
   const [news, setNews] = useState([]);
@@ -34,9 +33,7 @@ let News = () => {
 
   return (
     <>
-      {loading && 
-        <>Загрузка...</>
-      }
+      {loading && <div className='loader'>Загрузка...</div>}
       {news && news.map((posts, i) => <Article news={posts} key={i} />)}
     </>
   );

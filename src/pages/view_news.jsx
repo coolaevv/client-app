@@ -1,33 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ViewPost from '../components/view_article';
+import Article from '../components/article';
 
 let ViewNews = () => {
-  const { id } = useParams();
-  const [post, setPost] = useState({'id':'','title':'', 'desc':'', 'full':'', 'pictures':[], 'pubdate':'', 'views':''});
+    const params = useParams();
+    const [news, setNews] = useState([]);
+    const [loading, setLoading] = useState(false)
+    useEffect(() => {
 
-  useEffect(() => {
+        let GetData = async () => {
+            try {
+                setLoading(true);
+                await fetch("http://127.0.0.1:5000/news/" + params.id, { method: "GET" })
+                    .then(resp => {
+                        if (resp.ok) return resp.json()
+                        throw new Error('Something went wrong');
+                    })
+                    .then((data) => setNews(data))
+                    .catch(error => console.log(error))
+            } catch {
+                console.log("Loading error...");
+            } finally {
+                setLoading(false);
+            }
 
-    let GetData = async () => {
-      await fetch("http://127.0.0.1:5000/news/" + id, {method:"GET"})
-      .then(resp => { 
-        if ( resp.ok ) return resp.json()
-        throw new Error('Something went wrong');
-      })
-      .then((data) => setPost(data))
-    }
+        }
 
-    GetData();
-    
-  }, []);
+        GetData();
 
-  document.title = post.title;
+    }, []);
 
-  return (
-    <>
-      <ViewPost news={post} key={id}/>
-    </>
-  );
+    document.title = 'Новости';
+
+    return (
+        <>
+            {loading && <div className='loader'>Загрузка...</div>}
+            {news && news.map((posts, i) => <Article news={posts} key={i} />)}
+        </>
+    );
 }
 
 export default ViewNews;
