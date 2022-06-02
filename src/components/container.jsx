@@ -5,10 +5,15 @@ import ViewNews from '../pages/view_news';
 import Videos from '../pages/videos';
 import City from '../pages/city';
 import Poster from '../pages/poster';
+import ERRORS from '../pages/404_error';
+
+import Footer from '../components/footer';
+import ScrollTop from '../components/ScrollTopBtn';
 
 let Container = () => {
     return (
-        <>
+        <>  
+            <ScrollTop/>
             <main>
                 <div className="content">
                     <Routes>
@@ -18,13 +23,14 @@ let Container = () => {
                         <Route path="/videos" element={<Videos />} />
                         <Route path="/city" element={<City />} />
                         <Route path="/poster" element={<Poster />} />
+                        <Route path="*" element={<ERRORS />} />
                     </Routes>
                 </div>
                 <div className="not-important-nav">
 
                 </div>
             </main>
-
+            <Footer/>
         </>
     );
 }
