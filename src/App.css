@@ -4,9 +4,11 @@
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
 }
-
 html, body{
   background-color: #f0f0f0;  /*  #75605b */
+}
+.active{
+  color: #0652DD
 }
 .loader{
   margin-top: 300px;
@@ -16,10 +18,10 @@ html, body{
 }
 .btn-scroll-up{
   width: 50px;
-  height: calc(100vh - 75px);
-  border: 1px solid #f0f0f0;
-  border-radius: 0 5px 5px 0;
+  height: 50px;
+  border: none;
   position: fixed;
+  right: calc((100vw - 465px) / 2);
   top: 65px;
   display: flex;
   align-items: center;
@@ -27,10 +29,12 @@ html, body{
   cursor: pointer;
   opacity: 0;
   transition: 500ms;
+  z-index: 11;
+  background-color: rgba(189, 195, 199, .5);
+  border-radius: 5px;
 }
 .btn-scroll-up:hover{
-  border: 1px solid #dedede;
-  background-color: rgba(189, 195, 199, .2);
+  background-color: #0652DD;
 }
 .btn-scroll-up .up-btn{
   width: 35px;
@@ -77,16 +81,17 @@ header .header-body{
 header .header-body .logotype a{
   text-decoration: none;
   font-size: 25px;
-  color: #333333;
+  color: #000000;
 }
 header .header-body nav a{
   margin-left: 1.5em;
   text-decoration: none;
-  color: #909090;
+  color: #000000;
   font-size: 18px;
+  transition: color 300ms;
 }
 header .header-body nav a:hover{
-  color: #00d8d6;
+  color: #0652DD;
 }
 
 
@@ -94,25 +99,25 @@ header .header-body nav a:hover{
 footer{
   width: 100%;
   height: 100px;
+  margin-top: -10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #ffffff;
+  z-index: 8;
 }
 footer .header-footer{
   width: 900px;
   height: 100%;
   background-color: #ffffff;
-  border: 1px solid #dedede;
-  border-radius: 5px;
-  margin-top: -10px;
 }
 
 
 main{
   margin: 10px auto;
   width: 900px;
-  min-height: calc(100vh - 175px);
+  min-height: 100vh;
   position: relative;
   z-index: 9;
   display: flex;
@@ -125,10 +130,17 @@ main .content{
 }
 main .not-important-nav{
   width: calc(25% - 10px);
-  height: 50vh;
+  height: calc( (100vh - 75px) - 100px );
   position: sticky;
   top: 65px;
   left: calc(70% + 10px);
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+main .not-important-nav nav,
+main .not-important-nav .free-modul{
+  width: 100%;
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid #dedede;
@@ -152,14 +164,24 @@ main .not-important-nav{
 .carousel-post .news-link{
   display: block;
   text-decoration: none;
-  font-size: 18px;
-  color: #3498db;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
   cursor: pointer;
-  line-height: 1.2
+  line-height: 1.2;
+  transition: color 300ms;
+  letter-spacing: .03em;
 }
 .carousel-post .news-link:hover{
-  color: #00d8d6;
+  color: #0652DD;
+  text-decoration: underline;
 }
+.carousel-post .desc{
+  letter-spacing: .03em;
+  font-size: 16px;
+  color: #2C3A47
+}
+
 .PreviewAlbum{
   max-width: 100%;
   height: 350px;

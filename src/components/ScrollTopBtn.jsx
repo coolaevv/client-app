@@ -8,7 +8,6 @@ function ScrollTop() {
         } else {
             document.querySelector('.btn-scroll-up').style = 'opacity: 0';
         }
-
     })
 
     const handlerScrollUp = () => {

@@ -5,7 +5,6 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 let Article = ({ news }) => {
-
     return (
         <>
             {
@@ -27,7 +26,8 @@ let Article = ({ news }) => {
 
                             {
                                 news.carousel
-                                    ? <Carousel interval={null} fade={true}>
+                                    ? 
+                                    <Carousel interval={null} fade={true}>
                                         {news.pictures.map((href, i) =>
                                             <Carousel.Item key={i}>
                                                 <img className="d-block w-100" src={href} alt={news.title} title={news.title} />
@@ -39,7 +39,7 @@ let Article = ({ news }) => {
                                     </div>
                             }
 
-                            <p>{news.desc}</p>
+                            <p className='desc'>{news.desc}</p>
                             <p>{news.full}</p>
 
                             <div className="post-options">

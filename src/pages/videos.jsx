@@ -3,7 +3,7 @@
 function Videos() {
     return (
       <>
-        <h1>Видео</h1>
+        <video src="" id="videoPlayer"></video>
       </>
     );
   }
