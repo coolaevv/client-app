@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Article from '../components/article';
-import memoize from "lodash.memoize";
 
 let News = () => {
   const [news, setNews] = useState([]);

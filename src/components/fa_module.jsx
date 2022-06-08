@@ -1,6 +1,6 @@
 import React from 'react';
 
-let FA_Module = () => {
+let FAModule = () => {
     return(
         <>
             <div className="free-modul"></div>
@@ -8,4 +8,4 @@ let FA_Module = () => {
     );
 }
 
-export default FA_Module;
+export default FAModule;

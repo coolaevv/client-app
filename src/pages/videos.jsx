@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import ViewVideo from '../components/view_video';
+import Video from '../components/video';
 
 function Videos() {
   let [videos, setVideos] = useState([]);
   let [loading, setLoading] = useState(false)
 
   useEffect(() => {
-
     let GetVideo = async () => {
       try {
         setLoading(true);
@@ -38,7 +37,7 @@ function Videos() {
             </path>
           </svg>
         </div>}
-      { videos && videos.map( (video, i) => <ViewVideo post={video} key={i}/>)}
+      { videos && videos.map( (video, i) => <Video post={video} key={i}/>)}
     </>
   );
 }

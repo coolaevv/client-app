@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import News from '../pages/news';
 import ViewNews from '../pages/view_news';
@@ -8,12 +8,12 @@ import City from '../pages/city';
 import Poster from '../pages/poster';
 import ERRORS from '../pages/404_error';
 
-import FA_Module from '../components/fa_module';
+import FAModule from '../components/fa_module';
 import Footer from '../components/footer';
 import ScrollTop from '../components/ScrollTopBtn';
-import { useState } from 'react';
 
 let Container = () => {
+    
     return (
         <>  
             <ScrollTop/>
@@ -31,7 +31,7 @@ let Container = () => {
                 </div>
                 <div className="not-important-nav">
                     <nav></nav>
-                    <FA_Module />
+                    <FAModule />
                 </div>
             </main>
             <Footer/>

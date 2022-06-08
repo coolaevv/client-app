@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';

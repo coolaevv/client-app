@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-function ViewVideo({ post }) {
+function Video({ post }) {
 
     return (
         <>
@@ -36,4 +36,4 @@ function ViewVideo({ post }) {
     );
 }
 
-export default ViewVideo;
+export default Video;

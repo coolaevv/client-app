@@ -7,7 +7,6 @@ let ViewNews = () => {
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(false)
     useEffect(() => {
-
         let GetData = async () => {
             try {
                 setLoading(true);
@@ -23,7 +22,6 @@ let ViewNews = () => {
             } finally {
                 setLoading(false);
             }
-
         }
 
         GetData();
