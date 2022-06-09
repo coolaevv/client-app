@@ -6,11 +6,11 @@ let News = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-
     let GetData = async () => {
+      let url = "http://127.0.0.1:5000/news";
       try {
         setLoading(true);
-        await fetch("http://127.0.0.1:5000/news", { method: "GET" })
+        await fetch(url, { method: "GET" })
           .then(resp => {
             if (resp.ok) return resp.json()
             throw new Error('Something went wrong');
@@ -29,7 +29,7 @@ let News = () => {
 
   }, []);
 
-  document.title = 'Новости';
+  document.title = 'Все новости';
 
   return (
     <>
@@ -42,7 +42,7 @@ let News = () => {
             </path>
           </svg>
         </div>}
-      { !loading && <div className="wiget"></div> }
+      {/* { !loading && <div className="wiget"></div> } */}
       {news && news.map((posts, i) => <Article news={posts} key={i} />)}
     </>
   );

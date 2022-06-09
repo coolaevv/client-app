@@ -9,7 +9,7 @@ function Header() {
               <div className="logotype"><Link to="/">Logotype</Link></div>
               <nav>
                   <Link to="/news">Новости</Link>
-                  <Link to="/videos">Видео</Link>
+                  <Link to="/video">Видео</Link>
                   <Link to="/city">Город</Link>
                   <Link to="/poster">Афиша</Link>
               </nav>

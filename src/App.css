@@ -99,12 +99,13 @@ header .header-body nav a:hover{
 footer{
   width: 100%;
   height: 100px;
-  margin-top: -10px;
+  margin-top: 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
+  border-top: 1px solid #dedede;
   z-index: 8;
 }
 footer .header-footer{
@@ -117,7 +118,7 @@ footer .header-footer{
 main{
   margin: 10px auto;
   width: 900px;
-  min-height: 100vh;
+  height: auto;
   position: relative;
   z-index: 9;
   display: flex;
@@ -161,7 +162,7 @@ main .not-important-nav .free-modul{
   background-color: #ffffff;
   border-radius: 5px;
 }
-.carousel-post .news-link{
+.news-link, .title-link{
   display: block;
   text-decoration: none;
   font-size: 20px;
@@ -172,11 +173,11 @@ main .not-important-nav .free-modul{
   transition: color 300ms;
   letter-spacing: .03em;
 }
-.carousel-post .news-link:hover{
+.news-link:hover, .title-link:hover{
   color: #0652DD;
   text-decoration: underline;
 }
-.carousel-post .desc{
+.desc{
   letter-spacing: .03em;
   font-size: 16px;
   color: #2C3A47
@@ -285,9 +286,7 @@ main .not-important-nav .free-modul{
   padding: .5em;
   margin-bottom: 10px;
 }
-.video .title{
-  font-size: 20px;
-}
+
 .video .video-preview{
   width: 100%;
   height: 350px;
@@ -296,7 +295,7 @@ main .not-important-nav .free-modul{
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-top: -10px;
+  margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
 }

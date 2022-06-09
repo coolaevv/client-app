@@ -9,7 +9,7 @@ function Videos() {
     let GetVideo = async () => {
       try {
         setLoading(true);
-        await fetch("http://127.0.0.1:5000/videos", { method: "GET" })
+        await fetch("http://127.0.0.1:5000/video", { method: "GET" })
           .then(resp => {
             if (resp.ok) return resp.json()
             throw new Error('Something went wrong');
@@ -37,7 +37,7 @@ function Videos() {
             </path>
           </svg>
         </div>}
-      { videos && videos.map( (video, i) => <Video post={video} key={i}/>)}
+      { videos && videos.map( (video, i) => <Video video={video} key={i}/>)}
     </>
   );
 }
