@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
 import News from '../pages/news';
@@ -15,6 +15,12 @@ import Footer from '../components/footer';
 import ScrollTop from '../components/ScrollTopBtn';
 
 let Container = () => {
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (document.documentElement.scrollTop != 0) localStorage.posPage = document.documentElement.scrollTop;
+        });
+    }, [])
+
     return (
         <>  
             <ScrollTop/>

@@ -4,7 +4,8 @@ import NavCategory from '../components/nav_categories';
 
 let News = () => {
   const [news, setNews] = useState([]);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [PositionScrollPage, setPositionScrollPage] = useState(0);
 
   useEffect(() => {
     let GetData = async () => {
@@ -22,13 +23,13 @@ let News = () => {
         console.log("Loading error...");
       } finally {
         setLoading(false);
+        setPositionScrollPage(localStorage.posPage);
       }
 
     }
-
     GetData();
-
-  }, []);
+    if ( PositionScrollPage != 0 ) document.documentElement.scrollTop = PositionScrollPage;
+  }, [PositionScrollPage]);
 
   document.title = 'Все новости';
 
