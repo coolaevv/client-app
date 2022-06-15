@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import News from '../pages/news';
 import VievNews from '../pages/SeparateView/view_news';
+import CategoryNews from '../pages/category';
 import Videos from '../pages/videos';
 import ViewVideo from '../pages/SeparateView/view_video';
 import City from '../pages/city';
@@ -23,6 +24,7 @@ let Container = () => {
                         <Route path="/" element={<News />} />
                         <Route path="/news" element={<News />} />
                         <Route path="/news/:id" element={<VievNews />} />
+                        <Route path="/news/category/:cat" element={<CategoryNews />} />
                         <Route path="/video" element={<Videos />} />
                         <Route path="/video/:id" element={<ViewVideo />} />
                         <Route path="/city" element={<City />} />

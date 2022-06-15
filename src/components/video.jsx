@@ -1,26 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function Video({ video }) {
+    let PlayVideo = () => {
+        let source = document.querySelector('.play-btn').getAttribute('data-src');
+        console.log(source)
+    }
+    let PauseVideo = () => {
+        
+    }
     return (
-        <>  
+        <>  { !video.link &&
+                <Link to={'/video'} className='backPageBtn' title='Вернуться назад'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                </Link>
+            }
             {
                 video &&
                 <div className="video" id={video.id} key={video.id}>
-                    {video.link
+                    { !video.link
                         ? <h5>{video.title}</h5>
                         : <Link to={"/video/" + video.id} className="title-link">{video.title}</Link>
                     }
                 <div className="video-preview">
-                    <img src={video.preview} alt="" />
-                    <div className="play-btn" data-src={video.src}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
-                            <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
-                        </svg>
-                    </div>
+                { video.link 
+                    ? <Link to={"/video/" + video.id}>
+                        <img src={video.preview} alt="" />
+                        <div className="play-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" className="bi bi-caret-right" viewBox="0 0 16 16">
+                                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+                            </svg>
+                        </div>
+                    </Link> 
+                    : <video 
+                        src={video.src} 
+                        id='videoplayer' 
+                        controls
+                        autobuffer='true'
+                        preload='auto'
+                        poster={video.preview}
+                       ></video>
+                }
                 </div>
-                <p>{video.desc}</p>
-                <div className="post-options">
+                <div className="post-options" style={{marginTop: '10px'}}>
                     <div className="views opt">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
                             <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />

@@ -5,7 +5,7 @@
   font-family: 'Nunito', sans-serif;
 }
 html, body{
-  background-color: #f0f0f0;  /*  #75605b */
+  background-color: #edeef0;  /*  #75605b */
 }
 .active{
   color: #0652DD
@@ -21,8 +21,8 @@ html, body{
   height: 50px;
   border: none;
   position: fixed;
-  right: calc((100vw - 465px) / 2);
-  top: 65px;
+  right: calc((100vw - 365px) / 2);
+  top: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,14 +34,13 @@ html, body{
   border-radius: 5px;
 }
 .btn-scroll-up:hover{
-  background-color: #0652DD;
+  background-color: #1dd1a1;
 }
 .btn-scroll-up .up-btn{
   width: 35px;
   height: 35px;
-  border: 1px solid rgba(189, 195, 199, .3);;
   border-radius: 50%;
-  background-color: rgba(189, 195, 199, .5);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +70,7 @@ header{
 }
 header .header-body{
   margin: 0 auto;
-  width: 900px;
+  width: 845px;
   height: 100%;
   box-sizing: border-box;
   display: flex;
@@ -89,17 +88,33 @@ header .header-body nav a{
   color: #000000;
   font-size: 18px;
   transition: color 300ms;
+  position: relative;
 }
 header .header-body nav a:hover{
   color: #0652DD;
 }
+
+header .header-body nav a:hover::before{
+  content: "";
+  display: block;
+  width: 106%;
+  height: 2px;
+  border-radius: 10px;
+  background-color: #1dd1a1;
+  box-sizing: border-box;
+  position: absolute;
+  left: -3%;
+  bottom: -3px;
+}
+
+
+
 
 
 
 footer{
   width: 100%;
   height: 100px;
-  margin-top: 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -109,36 +124,43 @@ footer{
   z-index: 8;
 }
 footer .header-footer{
-  width: 900px;
+  width: 845px;
   height: 100%;
   background-color: #ffffff;
 }
 
 
 main{
-  margin: 10px auto;
-  width: 900px;
+  margin: 15px auto;
+  width: 845px;
   height: auto;
   position: relative;
   z-index: 9;
   display: flex;
 }
 main .content{
-  width: 75%;
+  width: 600px;
   height: 100%;
   margin-top: 0;
+  margin-right: 15px;
+  position: absolute;
   position: relative;
 }
 main .not-important-nav{
-  width: calc(25% - 10px);
-  height: calc( (100vh - 75px) - 100px );
+  width: 230px;
+  height: calc( (100vh - 90px) - 100px );
   position: sticky;
-  top: 65px;
-  left: calc(70% + 10px);
+  top: 70px;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 10px;
+  grid-gap: 15px;
 }
+
+main .not-important-nav nav{
+  display: block;
+  padding: .5em 1em;
+}
+
 main .not-important-nav nav,
 main .not-important-nav .free-modul{
   width: 100%;
@@ -155,37 +177,81 @@ main .not-important-nav .free-modul{
   background-color: #ffffff;
   margin-bottom: 10px;
 }
+
+.navCategory{
+  width: 100%;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  padding: .5em .5em 0 .5em;
+}
+.navCategory a{
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #1dd1a1;
+  color: #000000;
+  border-radius: 5px;
+  margin: 0 0 .5em .5em;
+  padding: .3em .5em;
+  transition: 300ms;
+}
+
+.navCategory a:hover{
+  background-color: #1dd1a1;
+  color: #ffffff;
+}
 .carousel-post{
   border: 1px solid #dedede;
-  padding: .5em;
-  margin-bottom: 10px;
+  padding: .5em 1em;
+  margin-bottom: 15px;
   background-color: #ffffff;
   border-radius: 5px;
+  position: relative;
+}
+.carousel-post:last-child{
+  margin-bottom: 5px;
+}
+
+.backPageBtn{
+  padding: .4em .6em;
+  text-decoration: none;
+  background-color: #1dd1a1;
+  color: #ffffff;
+  border-radius: 5px;
+  position: absolute;
+  left: -40px;
+  top: 0;
+}
+.carousel-post h5{
+  margin-top: 7px;
 }
 .news-link, .title-link{
   display: block;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   color: #000000;
   cursor: pointer;
-  line-height: 1.2;
+  line-height: 21x;
   transition: color 300ms;
   letter-spacing: .03em;
 }
 .news-link:hover, .title-link:hover{
   color: #0652DD;
-  text-decoration: underline;
 }
-.desc{
-  letter-spacing: .03em;
+.carousel-post .desc,
+.carousel-post .article-text{
+  line-height: 24px;
+  letter-spacing: 1px;
   font-size: 16px;
-  color: #2C3A47
+  font-weight: normal;
+  font-family: 'Nunito', sans-serif;
 }
 
 .PreviewAlbum{
   max-width: 100%;
-  height: 350px;
+  height: 300px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -199,7 +265,6 @@ main .not-important-nav .free-modul{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: -10px;
 }
 .wrapper-options{
   display: flex;
@@ -208,7 +273,25 @@ main .not-important-nav .free-modul{
 .wrapper-options span{
   margin-left: 10px;
   margin-right: 10px;
-  color: #818c99;
+  color: #0652DD;
+  position: relative;
+  transition: 300ms;
+}
+.wrapper-options span a{
+  text-decoration: none;
+  color: #0652DD;
+}
+.wrapper-options span a:hover::before{
+  content: "";
+  display: block;
+  width: 108%;
+  height: 2px;
+  border-radius: 10px;
+  background-color: #1dd1a1;
+  box-sizing: border-box;
+  position: absolute;
+  left: -3%;
+  bottom: -3px;
 }
 .post-options .opt,
 .wrapper-options .share-btn{
@@ -284,10 +367,10 @@ main .not-important-nav .free-modul{
   border: 1px solid #dedede;
   background-color: #ffffff;
   padding: .5em;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
-.video .video-preview{
+.video .video-preview a{
   width: 100%;
   height: 350px;
   overflow: hidden;
@@ -296,10 +379,16 @@ main .not-important-nav .free-modul{
   justify-content: center;
   position: relative;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 5px;
 }
-.video .video-preview .play-btn{
+
+.video .video-preview a img{
+  width: 100%;
+  height: 100%;
+}
+
+.video .video-preview a .play-btn{
   width: 45px;
   height: 45px;
   background-color: rgba(189, 195, 199, .7);
@@ -311,6 +400,12 @@ main .not-important-nav .free-modul{
   justify-content: center;
   cursor: pointer;
 }
-.video .video-preview img{
+
+
+#videoplayer{
   width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #000000;
+  border-radius: 5px;
 }

@@ -1,10 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 let Article = ({ news }) => {
+    let categories = {
+        'city': 'Город',
+        'incidents': 'Проишествия',
+        'politics': 'Политика',
+        'style-and-beauty': 'Стиль и красота',
+        'health': 'Здоровье',
+        'culture': 'Культура',
+        'science': 'Наука'
+    }
+
+    
+
     return (
         <>
             {
@@ -17,7 +29,13 @@ let Article = ({ news }) => {
                     <>
                         <div className='carousel-post' key={news.id}>
 
-                            {news.header && <Link to={'/news'}>Назад</Link>}
+                            {news.header && 
+                                <Link to={'/news'} className='backPageBtn' title='Вернуться назад'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-chevron-left" viewBox="0 0 16 16">
+                                        <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                    </svg>
+                                </Link>
+                            }
 
                             {news.link
                                 ? <h5>{news.title}</h5>
@@ -38,9 +56,11 @@ let Article = ({ news }) => {
                                         <img src={news.pictures[0]} alt="" />
                                     </div>
                             }
-
-                            <p className='desc'>{news.desc}</p>
-                            <p>{news.full}</p>
+                            
+                            { news.desc 
+                                ? <p className='desc'>{news.desc}</p>
+                                : <p className='article-text'>{news.full}</p>
+                            }
 
                             <div className="post-options">
                                 <div className='wrapper-options'>
@@ -67,7 +87,7 @@ let Article = ({ news }) => {
                                         </div>
                                     </Popup>
 
-                                    <span>#{news.category}</span>
+                                    <span><Link to={'/news/category/' + news.category}>#{categories[news.category]}</Link></span>
                                 </div>
 
                                 <div className="views opt">

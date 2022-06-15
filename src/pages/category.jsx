@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { Breadcrumb } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import Article from '../components/article';
 import NavCategory from '../components/nav_categories';
 
-let News = () => {
+let CategoryNews = () => {
+  let params = useParams();
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     let GetData = async () => {
-      let url = "http://127.0.0.1:5000/news";
+      let url = "http://127.0.0.1:5000/news/category/" + params.cat;
       try {
         setLoading(true);
         await fetch(url, { method: "GET" })
@@ -28,9 +31,37 @@ let News = () => {
 
     GetData();
 
-  }, []);
+  }, [params.cat]);
 
-  document.title = 'Все новости';
+  let titlePage = 'Все новости';
+
+  switch (params.cat){
+    case 'city':
+      titlePage = 'Город';
+      break;
+    case 'incidents':
+      titlePage = 'Проишествия';
+      break;
+    case 'politics':
+      titlePage = 'Политика';
+      break;
+    case 'style-and-beauty':
+      titlePage = 'Стиль и красота';
+      break;
+    case 'health':
+      titlePage = 'Здоровье';
+      break;
+    case 'culture':
+      titlePage = 'Культура';
+      break;
+    case 'science':
+      titlePage = 'Наука';
+      break;
+    default:
+      titlePage = 'Все новости';
+  }
+
+  document.title = 'Новости | ' + titlePage;
 
   return (
     <>
@@ -50,4 +81,4 @@ let News = () => {
   );
 }
 
-export default News;
+export default CategoryNews;
