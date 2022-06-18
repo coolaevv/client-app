@@ -29,7 +29,7 @@ let VievNews = () => {
 
         GetData();
 
-    }, []);
+    }, [params]);
     
     if ( news ) news.map((item, i) => document.title = item.title )
 

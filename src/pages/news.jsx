@@ -5,14 +5,14 @@ import NavCategory from '../components/nav_categories';
 let News = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [PositionScrollPage, setPositionScrollPage] = useState(0);
+  const [PositionScrollNewsPage, setPositionScrollNewsPage] = useState(0);
 
   useEffect(() => {
     let GetData = async () => {
       let url = "http://127.0.0.1:5000/news";
       try {
         setLoading(true);
-        await fetch(url, { method: "GET" })
+        await fetch(url, {method: "GET"})
           .then(resp => {
             if (resp.ok) return resp.json()
             throw new Error('Something went wrong');
@@ -23,13 +23,17 @@ let News = () => {
         console.log("Loading error...");
       } finally {
         setLoading(false);
-        setPositionScrollPage(localStorage.posPage);
+        setPositionScrollNewsPage(localStorage.posNewsPage);
+        localStorage.posVideoPage = 0;
+        localStorage.posNewsCatPage = 0;
       }
-
     }
     GetData();
-    if ( PositionScrollPage != 0 ) document.documentElement.scrollTop = PositionScrollPage;
-  }, [PositionScrollPage]);
+    if ( PositionScrollNewsPage !== 0 ) {
+      let div = document.querySelector('.main-wrapper');
+      div.scrollTop = PositionScrollNewsPage;
+    }
+  }, [PositionScrollNewsPage]);
 
   document.title = 'Все новости';
 

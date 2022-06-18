@@ -4,6 +4,34 @@
   box-sizing: border-box;
   font-family: 'Nunito', sans-serif;
 }
+
+.main-wrapper{
+  width: 100vw;
+  height: calc(100vh - 55px);
+  box-sizing: border-box;
+  overflow-y: scroll;
+  scrollbar-width: thin;          /* "auto" или "thin" */
+  scrollbar-color: #1dd1a1 #dedede;   /* цвет бегунка и зоны отслеживания */
+  
+}
+
+.main-wrapper::-webkit-scrollbar {
+  width: 8px; /* Ширина всего элемента навигации */
+}
+
+.main-wrapper::-webkit-scrollbar-track {
+  background: #dedede /* Цвет дорожки */
+}
+
+.main-wrapper::-webkit-scrollbar-thumb {
+  background-color: #1dd1a1; /* Цвет бегунка */
+  border-radius: 20px; /* Округление бегунка */
+  border: 8px solid #1dd1a1; /* Оформление границ бегунка */
+}
+
+
+
+
 html, body{
   background-color: #edeef0;  /*  #75605b */
 }
@@ -21,7 +49,7 @@ html, body{
   height: 50px;
   border: none;
   position: fixed;
-  right: calc((100vw - 365px) / 2);
+  right: calc((100vw - 345px) / 2);
   top: 70px;
   display: flex;
   align-items: center;
@@ -150,9 +178,9 @@ main .not-important-nav{
   width: 230px;
   height: calc( (100vh - 90px) - 100px );
   position: sticky;
-  top: 70px;
+  top: 15px;
   display: grid;
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 1fr 230px;
   grid-gap: 15px;
 }
 
@@ -213,6 +241,16 @@ main .not-important-nav .free-modul{
   margin-bottom: 5px;
 }
 
+
+.post-advertising{
+  background-color: #8e44ad;
+  border: none;
+  color: #ffffff;
+  padding-top: 10px;
+}
+
+
+
 .backPageBtn{
   padding: .4em .6em;
   text-decoration: none;
@@ -226,6 +264,45 @@ main .not-important-nav .free-modul{
 .carousel-post h5{
   margin-top: 7px;
 }
+
+
+.advertising-header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.advertising-link{
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 300ms;
+  margin-left: 5px;
+  border: 1px solid #1dd1a1;
+  border-radius: 5px;
+  padding: .3em .6em;
+  transition: color 300ms;
+}
+.advertising-link:hover{
+  background-color: #1dd1a1;
+  color: #ffffff;
+}
+.advertising-name{
+  margin-right: .5em;
+  font-size: 16px;
+  letter-spacing: .04em;
+  font-weight: 500;
+  color: #000000;
+  position: relative;
+}
+
+.post-advertising .advertising-name{
+  color: #ffffff;
+}
+
 .news-link, .title-link{
   display: block;
   text-decoration: none;
@@ -248,7 +325,9 @@ main .not-important-nav .free-modul{
   font-weight: normal;
   font-family: 'Nunito', sans-serif;
 }
-
+.post-advertising .carousel{
+  margin-top: 10px !important;
+}
 .PreviewAlbum{
   max-width: 100%;
   height: 300px;

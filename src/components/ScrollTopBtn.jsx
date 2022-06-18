@@ -1,17 +1,21 @@
 import React from 'react';
 
 function ScrollTop() {
-
-    document.addEventListener('scroll', () => {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            document.querySelector('.btn-scroll-up').style = 'opacity: 1';
-        } else {
-            document.querySelector('.btn-scroll-up').style = 'opacity: 0';
-        }
-    })
+    window.onload = () => {
+        let div = document.querySelector('.main-wrapper');
+        div.addEventListener('scroll', () => {
+            if (div.scrollTop > 300 || div.scrollTop > 300) {
+                document.querySelector('.btn-scroll-up').style = 'opacity: 1';
+            } else {
+                document.querySelector('.btn-scroll-up').style = 'opacity: 0';
+            }
+        })
+    }
+    
 
     const handlerScrollUp = () => {
-        window.scrollTo({
+        let div = document.querySelector('.main-wrapper');
+        div.scrollTo({
             top: 0,
             left: 0,
             behavior: 'smooth',

@@ -26,12 +26,10 @@ let ViewVideo = () => {
             }
 
         }
-
         GetData();
-
-    }, []);
+    }, [params]);
     
-    if ( news ) news.map((item, i) => document.title = item.title )
+    if ( news ) news.map((item) => document.title = item.title )
 
     return (
         <>

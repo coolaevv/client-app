@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Breadcrumb } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import Article from '../components/article';
 import NavCategory from '../components/nav_categories';
@@ -8,6 +7,7 @@ let CategoryNews = () => {
   let params = useParams();
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false)
+  const [PositionScrollNewsCatPage, setPositionScrollNewsCatPage] = useState(0);
 
   useEffect(() => {
     let GetData = async () => {
@@ -25,13 +25,17 @@ let CategoryNews = () => {
         console.log("Loading error...");
       } finally {
         setLoading(false);
+        setPositionScrollNewsCatPage(localStorage.posNewsCatPage);
+        localStorage.posNewsPage = 0;
+        localStorage.posVideoPage = 0;
       }
-
     }
-
     GetData();
-
-  }, [params.cat]);
+    if ( PositionScrollNewsCatPage !== 0 ) {
+      let div = document.querySelector('.main-wrapper');
+      div.scrollTop = PositionScrollNewsCatPage;
+    }
+  }, [params, PositionScrollNewsCatPage]);
 
   let titlePage = 'Все новости';
 
@@ -74,9 +78,8 @@ let CategoryNews = () => {
             </path>
           </svg>
         </div>}
-      {/* { !loading && <div className="wiget"></div> } */}
       { news && <NavCategory /> }
-      {news && news.map((posts, i) => <Article news={posts} key={i} />)}
+      { news && news.map((posts, i) => <Article news={posts} key={i}/>) }
     </>
   );
 }

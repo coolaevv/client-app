@@ -3,7 +3,8 @@ import Video from '../components/video';
 
 function Videos() {
   let [videos, setVideos] = useState([]);
-  let [loading, setLoading] = useState(false)
+  let [loading, setLoading] = useState(false);
+  const [PositionScrollVideoPage, setPositionScrollVideoPage] = useState(0);
 
   useEffect(() => {
     let GetVideo = async () => {
@@ -20,10 +21,17 @@ function Videos() {
         console.log("Loading error...");
       } finally {
         setLoading(false);
+        setPositionScrollVideoPage(localStorage.posVideoPage);
+        localStorage.posNewsPage = 0;
+        localStorage.posNewsCatPage = 0;
       }
     }
     GetVideo();
-  }, []);
+    if ( PositionScrollVideoPage !== 0 ) {
+      let div = document.querySelector('.main-wrapper');
+      div.scrollTop = PositionScrollVideoPage;
+    }
+  }, [PositionScrollVideoPage]);
 
   document.title = 'Видео';
   return (
