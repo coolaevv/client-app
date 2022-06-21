@@ -7,27 +7,28 @@ let News = () => {
   const [loading, setLoading] = useState(false);
   const [PositionScrollNewsPage, setPositionScrollNewsPage] = useState(0);
 
-  useEffect(() => {
-    let GetData = async () => {
-      let url = "http://127.0.0.1:5000/news";
-      try {
-        setLoading(true);
-        await fetch(url, {method: "GET"})
-          .then(resp => {
-            if (resp.ok) return resp.json()
-            throw new Error('Something went wrong');
-          })
-          .then((data) => setNews(data))
-          .catch(error => console.log(error))
-      } catch {
-        console.log("Loading error...");
-      } finally {
-        setLoading(false);
-        setPositionScrollNewsPage(localStorage.posNewsPage);
-        localStorage.posVideoPage = 0;
-        localStorage.posNewsCatPage = 0;
-      }
+  let GetData = async () => {
+    let url = "http://127.0.0.1:5000/news";
+    try {
+      setLoading(true);
+      await fetch(url, {method: "GET"})
+        .then(resp => {
+          if (resp.ok) return resp.json()
+          throw alert('Ошибка подключения к серверу!');
+        })
+        .then((data) => setNews(data))
+        .catch(error => console.log(error))
+    } catch {
+      console.log("Loading error...");
+    } finally {
+      setLoading(false);
+      setPositionScrollNewsPage(localStorage.posNewsPage);
+      localStorage.posVideoPage = 0;
+      localStorage.posNewsCatPage = 0;
     }
+  }
+
+  useEffect(() => {
     GetData();
     if ( PositionScrollNewsPage !== 0 ) {
       let div = document.querySelector('.main-wrapper');

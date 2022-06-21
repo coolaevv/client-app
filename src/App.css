@@ -35,8 +35,16 @@
 html, body{
   background-color: #edeef0;  /*  #75605b */
 }
-.active{
-  color: #0652DD
+.active-tab{
+  background-color: #1dd1a1;
+  color: #ffffff;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid #1dd1a1;
+  border-radius: 5px;
+  margin: 0 0 .5em .5em;
+  padding: .3em .5em;
+  transition: 300ms;
 }
 .loader{
   margin-top: 300px;
@@ -214,7 +222,7 @@ main .not-important-nav .free-modul{
   background-color: #ffffff;
   padding: .5em .5em 0 .5em;
 }
-.navCategory a{
+.navCategory .nav-cat-tab{
   display: inline-block;
   text-decoration: none;
   border: 1px solid #1dd1a1;
@@ -242,66 +250,85 @@ main .not-important-nav .free-modul{
 }
 
 
-.post-advertising{
-  background-color: #8e44ad;
-  border: none;
-  color: #ffffff;
-  padding-top: 10px;
-}
-
-
 
 .backPageBtn{
+  width: 50px;
+  height: 50px;
   padding: .4em .6em;
   text-decoration: none;
-  background-color: #1dd1a1;
+  background-color: rgba(189, 195, 199, .5);
   color: #ffffff;
   border-radius: 5px;
   position: absolute;
-  left: -40px;
+  left: -55px;
   top: 0;
+  transform: rotate(-90deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 300ms;
+}
+.backPageBtn:hover{
+  background-color: #1dd1a1;
+  color: #ffffff;
 }
 .carousel-post h5{
   margin-top: 7px;
 }
 
 
-.advertising-header{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 
-.advertising-link{
-  text-decoration: none;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-  transition: color 300ms;
-  margin-left: 5px;
+
+
+.post-advertising{
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  display: block;
+  background-color: #ffffff;
+  border: 1px solid #dedede;
+  padding: .5em 1em;
+  position: relative;
+  border-radius: 5px;
+}
+.post-advertising .advertising-name{
+  color: #000000;
+  letter-spacing: 1px;
+  margin: 5px 0 5px 0;
+
+}
+.post-advertising .advertising-link{
+  padding: .2em .6em;
   border: 1px solid #1dd1a1;
   border-radius: 5px;
-  padding: .3em .6em;
-  transition: color 300ms;
-}
-.advertising-link:hover{
-  background-color: #1dd1a1;
-  color: #ffffff;
-}
-.advertising-name{
-  margin-right: .5em;
-  font-size: 16px;
-  letter-spacing: .04em;
-  font-weight: 500;
   color: #000000;
-  position: relative;
+  text-decoration: none;
+  position: absolute;
+  top: 7px;
+  right: 1em;
+  transition: 300ms;
+}
+.post-advertising .advertising-link:hover{
+  color: #ffffff;
+  background-color: #1dd1a1;
+}
+.post-advertising .attachments-ad{
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.post-advertising .ad-desc{
+  margin: 10px 0 0 0;
+  color: #000000;
 }
 
-.post-advertising .advertising-name{
-  color: #ffffff;
-}
+
+
 
 .news-link, .title-link{
   display: block;
@@ -317,6 +344,7 @@ main .not-important-nav .free-modul{
 .news-link:hover, .title-link:hover{
   color: #0652DD;
 }
+
 .carousel-post .desc,
 .carousel-post .article-text{
   line-height: 24px;
@@ -324,10 +352,10 @@ main .not-important-nav .free-modul{
   font-size: 16px;
   font-weight: normal;
   font-family: 'Nunito', sans-serif;
+  padding: 0;
+  margin: 0;
 }
-.post-advertising .carousel{
-  margin-top: 10px !important;
-}
+
 .PreviewAlbum{
   max-width: 100%;
   height: 300px;
@@ -344,6 +372,8 @@ main .not-important-nav .free-modul{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .wrapper-options{
   display: flex;
@@ -397,6 +427,12 @@ main .not-important-nav .free-modul{
 .carousel{
   margin-top: .5em;
   margin-bottom: .5em;
+  height: 300px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 5px !important;
 }
 
 .carousel-inner {
@@ -487,4 +523,19 @@ main .not-important-nav .free-modul{
   box-sizing: border-box;
   background-color: #000000;
   border-radius: 5px;
+}
+
+
+.videPlayer{
+  position: relative;
+}
+.play-pause-btn{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }

@@ -11,6 +11,7 @@ let Article = ({ news }) => {
         'city': 'Город',
         'incidents': 'Проишествия',
         'politics': 'Политика',
+        'business': 'Бизнес',
         'style-and-beauty': 'Стиль и красота',
         'health': 'Здоровье',
         'culture': 'Культура',
@@ -26,19 +27,26 @@ let Article = ({ news }) => {
             }
 
             { news.type === 'advertising' &&
-                <div className='carousel-post post-advertising'>
-                    <div className="advertising-header">
-                        <strong className='advertising-name'>Рекламная запись</strong>
-                        <a href={news.id} target="_blank" rel="noreferrer" className='advertising-link'>Перейти на сайт</a>
+                <div className='post-advertising'>
+                    <p className='advertising-name'>Рекламная запись</p>
+                    <a href={news.id} target='_blank' rel='noreferrer' className='advertising-link'>Перейти на сайт</a>
+                    <div className="attachments-ad">
+                        <Carousel interval={null} fade={true}>
+                            { news.pictures.map((href, i) =>
+                                <Carousel.Item key={i}>
+                                    <img className="d-block w-100" src={href} alt={news.title} title={news.title} />
+                                </Carousel.Item>
+                            )}
+                        </Carousel>
                     </div>
-
+                    <p className='ad-desc'>{news.desc}</p>
                 </div>
                 
             }
 
             { (news.type === 'post' || news.type === 'view_post') &&
                 <div className='carousel-post' key={news.id}>
-                    {news.type === 'view_post' && <BackBTN />}
+                    {news.type === 'view_post' && <BackBTN href={'/news'} />}
                     { news.type === 'post' && <Link to={'/news/' + news.id} className='news-link'>{news.title}</Link> }
                     { news.type === 'view_post' && <h5>{news.title}</h5> }
                     { news.type === 'post' &&
